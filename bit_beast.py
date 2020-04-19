@@ -48,7 +48,8 @@ class BitBeast:
         return S
 
     # the stationary distribution is given by summing each column of the symmetric matrix
-    def find_stationary_distribution(self, symmetric_matrix):
+    @staticmethod
+    def find_stationary_distribution(symmetric_matrix):
         stationary_distribution = np.sum(symmetric_matrix, axis=0)
         return stationary_distribution
 
@@ -131,7 +132,8 @@ class Adaptation:
         self.output = self.evolve()
 
     # pick a random entry in the symmetric matrix representation to mutate
-    def pick_mutation_target(self):
+    @staticmethod
+    def pick_mutation_target():
         column = np.random.choice([0, 1, 2, 3])
         row = np.random.choice([0, 1, 2, 3])
         coordinate = (row, column)
